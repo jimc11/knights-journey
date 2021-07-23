@@ -244,9 +244,9 @@ class Game extends React.Component {
           </article>
 
           <div>
-            <SocialIcon style={{ height: 25, width: 25 }} url="https://www.linkedin.com/in/james-c-4910b08a/" />
-            <SocialIcon style={{ height: 25, width: 25 }} url="https://github.com/jimc11" />
-            <SocialIcon style={{ height: 25, width: 25 }} url="https://jamesrobertcrowley.com" />
+            <SocialIcon className="socialIcons" style={{ height: 25, width: 25 }} url="https://www.linkedin.com/in/james-c-4910b08a/" />
+            <SocialIcon className="socialIcons" style={{ height: 25, width: 25 }} url="https://github.com/jimc11" />
+            {/* <SocialIcon className="socialIcons" style={{ height: 25, width: 25 }} url="https://jamesrobertcrowley.com" /> */}
           </div>
         </div>
       </div>
@@ -260,6 +260,7 @@ class Game extends React.Component {
 // outer array represents starting tile, inner array represents possible places to move
 function graphConverter(kt) {
   let adj = []; // 64 x 64
+  
   // let placeholder = [];
   // for (let i = 0; i < 64; i++) {
   //   placeholder[i] = 0;
@@ -269,7 +270,7 @@ function graphConverter(kt) {
   //   adj[i] = placeholder;
   // }
 
-  // no idea why for loops dont work...  this is the only way!
+  // no idea why for loops dont work...  this is the only way!  don't look at this shameful code...
   adj = [
     [
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,

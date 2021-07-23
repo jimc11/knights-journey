@@ -15,9 +15,11 @@ body {
   .status {
    
     text-align: center;
-
+    margin-bottom: 5px;
   }
-  
+  .socialIcons{
+    margin-right: 5px;
+  }
   .square {
     background: #fff;
     border: 1px solid #999;
