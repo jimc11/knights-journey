@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import knight from "./img/knight.png";
-
+import { SocialIcon } from "react-social-icons"
 //TODO edge case at 63-0
 
 function Square(props) {
@@ -73,7 +73,7 @@ class Board extends React.Component {
       <Square
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
-        // image ={knight}
+      // image ={knight}
       />
     );
   }
@@ -87,9 +87,8 @@ class Board extends React.Component {
 
     let board = kt.solveKT(); // so far this checks out
     let adj = graphConverter(board); // this also seems to be working
-  
+
     let dist = d.algo_dijkstra(adj, src);
-  
 
     return dist[dest];
   }
@@ -198,8 +197,57 @@ class Game extends React.Component {
         </div>
 
         <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
+          <article>
+            I was invited to participate in Google's foobar coding challenge a few months ago and
+            this was one of the questions: <br />
+            <br />
+            "As a henchman on Commander Lambda’s space station, you’re expected to be resourceful,
+            smart, and a quick thinker. It’s not easy building a doomsday device and ordering the
+            bunnies around at the same time, after all! In order to make sure that everyone is
+            sufficiently quick-witted, Commander Lambda has installed new flooring outside the
+            henchman dormitories. It looks like a chessboard, and every morning and evening you have
+            to solve a new movement puzzle in order to cross the floor. That would be fine if you
+            got to be the rook or the queen, but instead, you have to be the knight. Worse, if you
+            take too much time solving the puzzle, you get “volunteered” as a test subject for the
+            LAMBCHOP doomsday device! To help yourself get to and from your bunk every day, write a
+            function called solution(src, dest) which takes in two parameters: the source square, on
+            which you start, and the destination square, which is where you need to land to solve
+            the puzzle. The function should return an integer representing the smallest number of
+            moves it will take for you to travel from the source square to the destination square
+            using a chess knight’s moves (that is, two squares in any direction immediately followed
+            by one square perpendicular to that direction, or vice versa, in an “L” shape). Both the
+            source and destination squares will be an integer between 0 and 63, inclusive." <br />
+            <br />
+            Now, there are many ways to go about this problem. I'm pretty proud of the way that I
+            solved it, as I have yet to see anyone solve it in the same way. I had just finished a
+            class on graph theory when I was assigned this task. So dijkstra's algorithm was fresh
+            on my mind. I knew that dijkstra's algorithm only worked with graphs, so my first step
+            was to turn the chessboard into a graph. To do that, I created an adjacency matrix that showed which squares could be accessed
+            from any other square on the board within one move of the knight. That was the most
+            complicated part of the exercise. However, there was plenty of available code online for
+            dijkstra's algorithm, so once the "knight's journey" adjacency matrix was defined, dijkstra's
+            algorithm took care of the rest.  You can view my code on my github by clicking the icon below,
+            or you can inspect the page.
+
+            <br /><br />
+
+
+            Feel free to click around on the chessboard to the left of this paragraph to test my work.
+
+            <br /><br />
+
+            Thanks so much for visiting!  <br />
+            -James Crowley
+
+            <br />
+            <br />
+          </article>
+
+          <div>
+            <SocialIcon style={{ height: 25, width: 25 }} url="https://www.linkedin.com/in/james-c-4910b08a/" />
+            <SocialIcon style={{ height: 25, width: 25 }} url="https://github.com/jimc11" />
+            <SocialIcon style={{ height: 25, width: 25 }} url="https://jamesrobertcrowley.com" />
+          </div>
         </div>
       </div>
     );
@@ -563,7 +611,6 @@ function graphConverter(kt) {
       }
     }
   }
-  
 
   // quick fix
   adj[10][0] = 1;
@@ -601,7 +648,7 @@ class KnightTour {
 
         newPositions.forEach((i) => {
           let nid = this.posToNodeId(i[0], i[1]);
-        
+
           ktGraph[nodeId][count] = nid; // ...hmmm
           count++;
         });
@@ -656,7 +703,7 @@ class KnightTour {
 } // end class KnightTour
 
 class Dijkstra {
-  constructor() {}
+  constructor() { }
 
   algo_dijkstra(graph, src_node) {
     //console.log(''+graph)
@@ -716,7 +763,5 @@ class Dijkstra {
 }
 
 // ========================================
-
-ReactDOM.render(<Game />, document.getElementById("root"));
 
 ReactDOM.render(<Game />, document.getElementById("root"));
